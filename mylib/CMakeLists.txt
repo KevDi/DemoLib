@@ -1,17 +1,13 @@
-add_library(MyLibAPI INTERFACE )
-target_include_directories(MyLibAPI INTERFACE   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
-                                                "$<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>")
-
 add_library(MyLib)
 
 target_sources(MyLib PUBLIC "include/mylib/export.hpp"
+                            "include/mylib/mylib.h"
+                            "include/mylib/mylib_impl.h"
                      PRIVATE    "src/mylib.cpp"
                                 "src/mylib_impl.cpp"
                                 "src/privlib.h"
                                 "src/privlib.cpp")
                                 
-target_link_libraries(MyLib PRIVATE MyLibAPI)
-
 target_include_directories(MyLib PUBLIC 
                             "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
                             "$<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>"

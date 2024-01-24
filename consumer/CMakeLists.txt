@@ -1,6 +1,6 @@
 add_library(Consumer)
 
-target_link_libraries(Consumer PRIVATE MyLibAPI)
+target_link_libraries(Consumer PRIVATE MyLib)
 
 target_sources(Consumer PUBLIC "include/consumer/consumer.h"
                                 "include/consumer/export.hpp"
